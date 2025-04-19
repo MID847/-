@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ماشین حساب</title>
+    <style>
+      :root {
+        --primary-color: #4a6bff;
+        --secondary-color: #f0f2f5;
+        --text-color: #333;
+        --button-hover: #3a5bef;
+        --button-active: #2a4bdf;
+        --operator-color: #ff9500;
+        --operator-hover: #e68a00;
+        --operator-active: #d68000;
+        --equals-color: #34c759;
+        --equals-hover: #2cb850;
+        --equals-active: #24a948;
+        --clear-color: #ff3b30;
+        --clear-hover: #e63329;
+        --clear-active: #d62b21;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+      }
+
+      .calculator {
+        width: 320px;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .display {
+        padding: 20px;
+        text-align: right;
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .previous-operand {
+        font-size: 1.2rem;
+        color: #6c757d;
+        height: 24px;
+        overflow: hidden;
+      }
+
+      .current-operand {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-top: 8px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background-color: #e9ecef;
+      }
+
+      button {
+        border: none;
+        outline: none;
+        padding: 20px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        background-color: white;
+        transition: all 0.2s;
+      }
+
+      button:hover {
+        background-color: var(--secondary-color);
+      }
+
+      button:active {
+        background-color: #e0e2e5;
+      }
+
+      .operator {
+        background-color: var(--operator-color);
+        color: white;
+      }
+
+      .operator:hover {
+        background-color: var(--operator-hover);
+      }
+
+      .operator:active {
+        background-color: var(--operator-active);
+      }
+
+      .equals {
+        background-color: var(--equals-color);
+        color: white;
+      }
+
+      .equals:hover {
+        background-color: var(--equals-hover);
+      }
+
+      .equals:active {
+        background-color: var(--equals-active);
+      }
+
+      .clear,
+      .delete {
+        background-color: var(--clear-color);
+        color: white;
+      }
+
+      .clear:hover,
+      .delete:hover {
+        background-color: var(--clear-hover);
+      }
+
+      .clear:active,
+      .delete:active {
+        background-color: var(--clear-active);
+      }
+
+      .span-2 {
+        grid-column: span 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="display">
+        <div class="previous-operand" id="previous-operand"></div>
+        <div class="current-operand" id="current-operand">0</div>
+      </div>
+      <div class="buttons">
+        <button class="clear span-2" id="clear">پاک کردن</button>
+        <button class="delete" id="delete">⌫</button>
+        <button class="operator" id="divide">÷</button>
+
+        <button id="seven">7</button>
+        <button id="eight">8</button>
+        <button id="nine">9</button>
+        <button class="operator" id="multiply">×</button>
+
+        <button id="four">4</button>
+        <button id="five">5</button>
+        <button id="six">6</button>
+        <button class="operator" id="subtract">−</button>
+
+        <button id="one">1</button>
+        <button id="two">2</button>
+        <button id="three">3</button>
+        <button class="operator" id="add">+</button>
+        <button id="zero" class="span-2">0</button>
+        <button id="decimal">.</button>
+        <button class="equals" id="equals">=</button>
+      </div>
+    </div>
+    <script src="dist/calculator.js"></script>
+  </body>
+</html>
