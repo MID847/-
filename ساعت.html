@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ساعت هوشمند</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #333333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .clock-container {
+            background-color: #333333;
+            color: #0f0;
+            padding: 30px 50px;
+            border-radius: 10px;
+            font-size: 3rem;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+        }
+
+        .alarm-section {
+            background-color: #666666;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .alarm-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, button {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .alarm-message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .active-alarm {
+            background-color: #ffeb3b;
+            display: block;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="clock-container" id="clock">00:00:00</div>
+    
+    <div class="alarm-section">
+        <h2>تنظیم هشدار</h2>
+        <div class="alarm-form">
+            <input type="time" id="alarm-time" required>
+            <button id="set-alarm">تنظیم هشدار</button>
+            <button id="stop-alarm" style="background-color: #f44336;">توقف هشدار</button>
+        </div>
+        <div class="alarm-message" id="alarm-message"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
