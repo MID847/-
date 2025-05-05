@@ -34,17 +34,6 @@ function triggerAlarm(): void {
     alarmMessage.textContent =` ⏰ هشدار! ساعت ${alarmTime} رسیده است!`;
     alarmMessage.classList.add('active-alarm');
     
-    // پخش صدای هشدار
-    const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3');
-    audio.loop = true;
-    audio.play();
-    
-    // ذخیره رفرنس صدا برای توقف بعدی
-    alarmInterval = setInterval(() => {
-        audio.play();
-    }, 1000);
-}
-
 // تنظیم هشدار
 function setAlarm(): void {
     if (!alarmTimeInput.value) {
